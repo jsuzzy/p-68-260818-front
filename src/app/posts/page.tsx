@@ -26,7 +26,7 @@ export default function Posts() {
                 ? <div>로딩중..</div>
                 : <ul>
                     {
-                        posts.map((p) => <li key={p.id}>{p.title}</li>)
+                        posts.map((post) => <li key={post.id}>{post.id} : {post.title}</li>)
                     }
                 </ul>
         }
