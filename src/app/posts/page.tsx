@@ -20,10 +20,16 @@ export default function Posts() {
     }, []);
 
     return (
-        <ul>
-            {
-                posts.map((p) => <li key={p.id}>{p.title}</li>)
-            }
-        </ul>
+        <>
+        {
+            posts.length === 0
+                ? <div>로딩중..</div>
+                : <ul>
+                    {
+                        posts.map((p) => <li key={p.id}>{p.title}</li>)
+                    }
+                </ul>
+        }
+        </>
     )
 }
