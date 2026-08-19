@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface Post {
     id: number;
@@ -21,15 +22,18 @@ export default function Posts() {
 
     return (
         <>
-        {
-            posts.length === 0
-                ? <div>로딩중..</div>
-                : <ul>
-                    {
-                        posts.map((post) => <li key={post.id}>{post.id} : {post.title}</li>)
-                    }
-                </ul>
-        }
+            {
+                posts.length === 0
+                    ? <div>로딩중..</div>
+                    : <ul>
+                        {
+                            posts.map((post) => (
+                                <Link key={post.id} href={`/posts/${post.id}`} >
+                                    <li>{post.id} : {post.title}</li>
+                                </Link>
+                            ))}
+                    </ul >
+            }
         </>
     )
 }
