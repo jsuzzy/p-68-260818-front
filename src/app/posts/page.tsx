@@ -19,14 +19,17 @@ export default function Posts() {
             {
                 posts.length === 0
                     ? <div>로딩중..</div>
-                    : <ul>
-                        {
-                            posts.map((post) => (
-                                <Link key={post.id} href={`/posts/${post.id}`} >
-                                    <li>{post.id} : {post.title}</li>
-                                </Link>
-                            ))}
-                    </ul >
+                    : <div className="flex flex-col gap-4 items-center">
+                        <ul>
+                            {
+                                posts.map((post) => (
+                                    <Link key={post.id} href={`/posts/${post.id}`} >
+                                        <li>{post.id} : {post.title}</li>
+                                    </Link>
+                                ))}
+                        </ul >
+                        <Link href="/posts/write">글 작성</Link>
+                    </div>
             }
         </>
     )

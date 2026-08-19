@@ -13,7 +13,7 @@ export default function Detail() {
 
     useEffect(() => {
         fetchApi(`/api/v1/posts/${id}`)
-            .then(setPost) //매개변수가 하나일 땐 알아서 setPost에 data 넣어줌
+            .then(setPost)
     }, []);
 
 
