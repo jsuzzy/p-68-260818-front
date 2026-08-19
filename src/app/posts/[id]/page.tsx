@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react"
 import { PostDto } from "@/type/post";
+import { fetchApi } from "@/lib/client";
 
 export default function Detail() {
 
@@ -11,11 +12,8 @@ export default function Detail() {
     const [post, setPost] = useState<PostDto | null>(null);
 
     useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/posts/${id}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setPost(data);
-            })
+        fetchApi(`/api/v1/posts/${id}`)
+            .then(setPost) //매개변수가 하나일 땐 알아서 setPost에 data 넣어줌
     }, []);
 
 
