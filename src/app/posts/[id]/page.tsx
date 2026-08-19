@@ -2,20 +2,13 @@
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react"
-
-interface postDto{
-    id: number;
-    title: string;
-    content: string;
-    createDate: string;
-    modifyDate: string;
-}
+import { PostDto } from "@/type/post";
 
 export default function Detail() {
 
     const {id} = useParams(); //구조분해할당으로 객체에서 id 바로 가져옴
 
-    const [post, setPost] = useState<postDto | null>(null);
+    const [post, setPost] = useState<PostDto | null>(null);
 
     useEffect(() => {
         fetch(`http://localhost:8080/api/v1/posts/${id}`)

@@ -2,14 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { PostDto } from "@/type/post";
 
-interface Post {
-    id: number;
-    title: string;
-}
 
 export default function Posts() {
-    const [posts, setPosts] = useState<Post[]>([]);
+    const [posts, setPosts] = useState<PostDto[]>([]);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/v1/posts")
